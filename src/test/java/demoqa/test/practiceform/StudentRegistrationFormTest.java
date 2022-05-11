@@ -11,12 +11,13 @@ public class StudentRegistrationFormTest {
 
     @Test
     void testRegistrationFormTestPositive() throws InterruptedException {
-        final String FIRST_NAME = "Masha";
+        final String FIRST_NAME = "Masha";  //this is constanta! no change
         final String LAST_NAME = "Ivanova";
         final String USER_EMAIL = "a@a.ru";
         final String USER_NUMBER = "1234567890";
-        final String DATE_OF_BIRTH = "25Apr1999";
-        final String CURRENT_ADDRESS = "1234LaHabraHeights";
+        final String DATE_OF_BIRTH = "01Jan1999";
+        final String CURRENT_ADDRESS = "123 Irvine";
+        final String GENDER_FEMALE = "1";
 
         System.setProperty("webdriver.chrome.driver", "C:/Users/rumbl/Downloads/chromedriver.exe");
 
@@ -40,15 +41,15 @@ public class StudentRegistrationFormTest {
 
         WebElement genderMale = driver.findElement(By.cssSelector("#genterWrapper div.custom-control.custom-radio.custom-control-inline label"));
         genderMale.click();
+        WebElement genderFemale = driver.findElement(By.cssSelector("#genterWrapper div.custom-control.custom-radio.custom-control-inline label"));
+        genderFemale.click();
 
         WebElement userNumber = driver.findElement(By.cssSelector("#userNumber"));
         userNumber.sendKeys(USER_NUMBER);
 
-        WebElement dateOfBirth = driver.findElement(By.cssSelector("input#dateOfBirthInput.form-control"));
-        userNumber.sendKeys(DATE_OF_BIRTH);
-
         WebElement currentAddress = driver.findElement(By.cssSelector("#currentAddress-wrapper.mt-2.row"));
         userNumber.sendKeys(CURRENT_ADDRESS);
+
 
 
 
